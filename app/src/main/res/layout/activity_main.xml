@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+
+    <TextView
+        android:id="@+id/nameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text = "이름"
+        android:textStyle="bold"
+        style="@style/Title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+  />
+
+    <TextView
+        android:id="@+id/nameValueTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text = "조로또"
+        android:ellipsize="end"
+        android:layout_marginEnd="36dp"
+        android:maxLines="1"
+        style="@style/Value"
+        app:layout_constraintBaseline_toBaselineOf="@id/nameTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/guideLine"/>
+/>
+
+    <TextView
+        android:id="@+id/birthdateTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text = "생년월일"
+        android:textStyle="bold"
+        style="@style/Title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/nameTextView"
+/>
+
+    <TextView
+        android:id="@+id/birthdateValueTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text = "0000-00-00"
+        style="@style/Value"
+        android:layout_marginEnd="36dp"
+        android:gravity="end"
+        app:layout_constraintStart_toStartOf="@id/guideLine"
+        app:layout_constraintBaseline_toBaselineOf="@id/birthdateTextView"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/bloodTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text = "혈액형"
+        android:textStyle="bold"
+        android:layout_marginEnd="36dp"
+        style="@style/Title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/birthdateTextView"
+        />
+
+    <TextView
+        android:id="@+id/bloodValueTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text = "A"
+        android:layout_marginEnd="36dp"
+        style="@style/Value"
+        app:layout_constraintBaseline_toBaselineOf="@id/bloodTextView"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/contactTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text = "비상 연락처"
+        android:textStyle="bold"
+        style="@style/Title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bloodTextView"
+        />
+
+    <TextView
+        android:id="@+id/contactValueTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text = "000-0000-0000"
+        style="@style/Value"
+        android:layout_marginEnd="36dp"
+        app:layout_constraintBaseline_toBaselineOf="@id/contactTextView"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/cautionTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text = "주의사항"
+        android:textStyle="bold"
+        style="@style/Title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/contactTextView"
+        />
+
+    <TextView
+        android:id="@+id/cautionValueTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text = "주의사항"
+        android:layout_marginEnd="36dp"
+        style="@style/Value"
+        app:layout_constraintBaseline_toBaselineOf="@id/cautionTextView"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideLine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.4"
+/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/goActivityInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:layout_margin="36dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:src="@drawable/baseline_mode_edit_24"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>
