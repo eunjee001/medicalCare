@@ -106,7 +106,6 @@
         android:id="@+id/bloodTypeSpinner"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
         android:entries="@array/blood_types"
         app:layout_constraintBottom_toBottomOf="@id/bloodTextView"
         app:layout_constraintEnd_toEndOf="@id/nameValueEditText"
@@ -168,12 +167,12 @@
         app:layout_constraintTop_toTopOf="@id/cautionTextView" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/goActivityInput"
+        android:id="@+id/saveButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="36dp"
         android:clickable="true"
-        android:src="@drawable/baseline_mode_edit_24"
+        android:src="@drawable/baseline_save_as_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

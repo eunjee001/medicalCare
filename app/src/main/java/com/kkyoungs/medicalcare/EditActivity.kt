@@ -2,9 +2,11 @@ package com.kkyoungs.medicalcare
 
 import android.app.DatePickerDialog
 import android.app.DatePickerDialog.OnDateSetListener
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.core.view.isVisible
 import com.kkyoungs.medicalcare.databinding.ActivityEditBinding
 
@@ -26,7 +28,7 @@ class EditActivity : AppCompatActivity() {
             println(">>>>>")
             val listener = OnDateSetListener{
                 _, year,month, dayOfMonth ->
-                binding.birthdateTextView.text = "$year-${month.inc()}-$dayOfMonth"
+                binding.birthdateValueTextView.text = "$year-${month.inc()}-$dayOfMonth"
             }
             DatePickerDialog(this,listener, 2000,1,1).show()
         }
@@ -36,7 +38,31 @@ class EditActivity : AppCompatActivity() {
         }
 
         binding.cautionEditText.isVisible = binding.warningCheckBox.isChecked
+        binding.saveButton.setOnClickListener {
+            saveData()
+            finish()
+        }
+    }
 
+    private fun saveData(){
+        with(getSharedPreferences("userInformation", Context.MODE_PRIVATE).edit()){
+            putString(NAME, binding.nameValueEditText.text.toString())
+            putString(BLOOD_TYPE, getBloodType())
+            putString(EMERGENCY_CONTACT, binding.contactEditText.text.toString())
+            putString(BIRTHDATE, binding.birthdateTextView.text.toString())
+            putString(WARNING, getWarning())
+            apply()
+        }
 
+        Toast.makeText(this, "저장을 완료 했습니다.", Toast.LENGTH_SHORT).show()
+    }
+    fun getBloodType():String{
+        val bloodAlphabet = binding.bloodTypeSpinner.selectedItem.toString()
+        val bloodSign = if(binding.bloodTypePlus.isChecked) "+" else "-"
+        return "$bloodSign$bloodAlphabet"
+    }
+
+    fun getWarning():String{
+        return if (binding.warningCheckBox.isChecked) binding.cautionEditText.text.toString() else ""
     }
 }
